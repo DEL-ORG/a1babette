@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+    apps_name: thunderstorm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+      apps_name: thunderstorm
+  template:
+    metadata:
+      labels:
+        app: frontend
+        apps_name: thunderstorm
+    spec:
+      containers:
+        - name: frontend-container
+          image: devopseasylearning/thunderstrom-frontend:001
+          ports:
+            - containerPort: 5000
+
